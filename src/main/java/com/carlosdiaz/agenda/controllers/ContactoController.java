@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.carlosdiaz.agenda.models.Contacto;
@@ -35,8 +35,16 @@ public class ContactoController {
     }
 
     @PostMapping("/contactos")
-    void guardar(@RequestParam Contacto contacto){
+    void guardar(@RequestBody Contacto contacto){
         service.save(contacto);
+    }
+
+    @PutMapping("/contactos/{id}")
+    void modificar(@PathVariable int id, @RequestBody Contacto contacto){
+        
+        service.update(id, contacto);
+    
+
     }
 
     

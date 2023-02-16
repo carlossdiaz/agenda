@@ -36,7 +36,9 @@ public class ContactoServiceImpl implements ContactoService{
     }
 
     @Override
-    public void update(Contacto contacto) {
+    public void update(int id, Contacto contacto) {
+        this.findById(id);
+        contacto.setId(id);
         repository.save(contacto);
         
     }
