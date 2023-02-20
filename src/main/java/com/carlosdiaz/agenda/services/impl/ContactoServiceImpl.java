@@ -31,8 +31,9 @@ public class ContactoServiceImpl implements ContactoService{
     }
 
     @Override
-    public Contacto save(Contacto contacto) {
-        return repository.save(contacto);
+    public void save(Contacto contacto) {
+        repository.save(contacto);
+        
     }
 
     @Override
